@@ -46,3 +46,14 @@ const createEmployee = (salary: number | string): Director | Teacher => {
     return new Director;
   }
 }
+
+const isDirector = (employee: Director | Teacher) => {
+  return employee instanceof Director;
+}
+
+const executeWork = (employee: Director | Teacher) => {
+  if(isDirector(employee)) {
+    return (employee as Director).workDirectorTasks();
+  }
+  return (employee as Teacher).workTeacherTasks();
+}
