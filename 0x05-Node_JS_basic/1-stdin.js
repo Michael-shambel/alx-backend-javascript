@@ -1,15 +1,19 @@
-console.log('Welcome to Holberton School, what is your name?');
+const readline = require('readline');
 
-process.stdin.on('data', (data) => {
-  const name = data.toString().trim();
-  console.log(`Your name is: ${name}`);
-  if (!process.stdin.isTTY) {
-    process.stdin.end();
-  } else {
-    process.exit(0);
-  }
+const r1 = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
 });
 
-process.stdin.on('end', () => {
-  console.log('This important software is now closing');
+console.log('Welcome to Holberton School, what is your name?');
+
+r1.on('line', (input) => {
+  process.stdout.write(`Your name is: ${input}\n`);
+  r1.close();
+});
+
+r1.on('close', () => {
+  if (!process.stdin.isTTY) {
+    process.stdout.write('This important software is now closing\n');
+  }
 });
