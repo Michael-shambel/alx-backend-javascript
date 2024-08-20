@@ -14,5 +14,4 @@ r1.on('line', (input) => {
 
 r1.on('close', () => {
   console.log('This important software is now closing');
-  process.exit(0);
 });
