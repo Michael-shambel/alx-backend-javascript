@@ -4,6 +4,7 @@ process.stdin.on('readable', () => {
   let name = process.stdin.read();
 
   if (name !== null) {
+    name = name.toString().trim();
     process.stdout.write(`Your name is: ${name}\n`);
   }
 });
