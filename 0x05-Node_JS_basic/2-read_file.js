@@ -1,6 +1,5 @@
 const fs = require('fs');
 
-// const path = './database.csv';
 function countStudents(path) {
   try {
     const data = fs.readFileSync(path, 'utf8');
