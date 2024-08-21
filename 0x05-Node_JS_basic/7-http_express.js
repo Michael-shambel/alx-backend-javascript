@@ -8,13 +8,13 @@ app.get('/', (req, res) => {
 });
 
 app.get('/students', async (req, res) => {
-    const dbpath = process.argv[2];
-    try {
-      const output = await countStudents(dbpath);
-      res.send(`This is the list of our students\n${output}`);
-    } catch(err) {
-      res.status(500).send(err.message);
-    }
+  const dbpath = process.argv[2];
+  try {
+    const output = await countStudents(dbpath);
+    res.send(`This is the list of our students\n${output}`);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
 });
 
 app.listen(1245, () => {
