@@ -1,10 +1,10 @@
 {
-    "scripts": {
-        "test": "mocha"
-    },
-    "type": "module",
-    "devDependencies": {
-        "chai": "^5.1.1",
-        "mocha": "^10.7.3"
-    }
+  "name": "task_0",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "mocha": "^10.7.3"
+  }
 }
