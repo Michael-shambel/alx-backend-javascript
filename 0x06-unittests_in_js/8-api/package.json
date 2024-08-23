@@ -4,9 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-      "start": "node api.js",
-      "test": "mocha api.test.js",
-      "test:all": "npm-run-all start test"
+      "test": "./node_modules/mocha/bin/mocha"
     },
     "author": "",
     "license": "ISC",
