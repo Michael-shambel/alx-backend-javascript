@@ -1,5 +1,30 @@
 const http = require('http');
-const countStudents = require('./3-read_file_async');
+
+const fs = require('fs').promises;
+
+async function countStudents(path) {
+  try {
+    const data = await fs.readFile(path, 'utf8');
+    const lines = data.trim().split('\n');
+    const students = lines.slice(1).filter((line) => line.trim() !== '');
+    let output = `Number of students: ${students.length}\n`;
+    const fields = {};
+    students.forEach((student) => {
+      const [firstname,, , field] = student.split(',');
+      if (!fields[field]) {
+        fields[field] = [];
+      }
+      fields[field].push(firstname);
+    });
+
+    for (const [field, names] of Object.entries(fields)) {
+      output += `Number of students in ${field}: ${names.length}. List: ${names.join(', ')}\n`;
+    }
+    return output.trim();
+  } catch (err) {
+    throw new Error('Cannot load the database');
+  }
+}
 
 const app = http.createServer(async (req, res) => {
   if (req.url === '/') {
