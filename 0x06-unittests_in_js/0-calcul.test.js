@@ -2,27 +2,27 @@ const assert = require('assert');
 const calculateNumber = require('./0-calcul');
 
 describe('calculateNumber', () => {
-  it('should return sum when inputs are two numbers', () =>{
+  it('should return 4 when inputs are 1 and 3', function() {
     assert.strictEqual(calculateNumber(1, 3), 4);
   });
 
-  it('should retunrn sum when inputs are two numbers', () => {
-    assert.strictEqual(calculateNumber(1, 2), 3);
-  })
-
-  it('should return 5 when inputs are 1 and 3.9', () => {
+  it('should return 5 when inputs are 1 and 3.7', function() {
     assert.strictEqual(calculateNumber(1, 3.7), 5);
   });
 
-  it('should return 5 when inputs are 1.2 and 3.7', () => {
+  it('should return 5 when inputs are 1.2 and 3.7', function() {
     assert.strictEqual(calculateNumber(1.2, 3.7), 5);
   });
 
-  it('should return 6 when inputs are 1.5 and 3.7', () => {
+  it('should return 6 when inputs are 1.5 and 3.7', function() {
     assert.strictEqual(calculateNumber(1.5, 3.7), 6);
   });
 
-  it('should return 3 when inputs are -2 and 5', () => {
-    assert.strictEqual(calculateNumber(-2, 5), 3);
-  })
+  it('should handle negative numbers correctly', function() {
+    assert.strictEqual(calculateNumber(-1.4, -3.6), -5);
+  });
+
+  it('should handle mixed sign numbers correctly', function() {
+    assert.strictEqual(calculateNumber(-1.4, 3.6), 3);
+  });
 });
