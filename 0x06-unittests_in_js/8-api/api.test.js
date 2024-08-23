@@ -5,15 +5,15 @@ const app = require('./api');
 
 describe('Index page', () => {
     it('should return the correct status code', (done) => {
-        request('http://localhost:7865', (error, response, body) => {
-            expect(response.statusCode).to.equal(200);
+        request.get('http://localhost:7865/', (error, response, body) => {
+            expect(response.statusCode).to.be.equal(200);
             done();
         });
     });
 
     it('should return the correct result', (done) => {
-        request('http://localhost:7865', (error, response, body) => {
-            expect(body).to.equal('Welcome to the payment system');
+        request.get('http://localhost:7865/', (error, response, body) => {
+            expect(body).to.be.equal('Welcome to the payment system');
             done();
         });
     });
