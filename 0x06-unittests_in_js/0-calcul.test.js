@@ -7,7 +7,7 @@ describe('calculateNumber', () => {
   });
 
   it('should retunrn sum when inputs are two numbers', () => {
-    assert.strictEqual(calculateNumber(1.8, 2), 4);
+    assert.strictEqual(calculateNumber(1, 2), 3);
   })
 
   it('should return 5 when inputs are 1 and 3.9', () => {
